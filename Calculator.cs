@@ -16,5 +16,13 @@ namespace Classes
                     return 0;
             }
         }
+
+        public bool CheckCalculationInput(string value) {
+            if (value .Equals("+") || value .Equals("-") || value .Equals("*") || value .Equals("/")) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 }

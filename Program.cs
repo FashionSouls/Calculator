@@ -1,22 +1,51 @@
 ﻿using Classes;
 
-Calculator calculator = new Calculator();
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Calculator calculator = new Calculator();
 
-float firstNumber;
-float secondNumber;
-string calculation;
+        float firstNumber = 0;
+        float secondNumber = 0;
+        string calculation = "";
 
-Console.WriteLine("Enter your first number:");
-firstNumber = Convert.ToInt32(Console.ReadLine());
+        bool firstNumberCheck = false;
+        while (!firstNumberCheck) {
+            Console.WriteLine("Enter your first number:");
+            string value = Console.ReadLine();
 
-Console.WriteLine("Enter your second number:");
-secondNumber = Convert.ToInt32(Console.ReadLine());
+            firstNumberCheck = float.TryParse(value, out firstNumber);
 
-Console.WriteLine("Enter your calculation method (+, -, *, /):");
-calculation = Console.ReadLine();
+            if (!firstNumberCheck) {
+                Console.WriteLine("Not a valid number, please try again.\n");
+            }
+        }
 
-float result = calculator.GetResults(firstNumber, secondNumber, calculation);
+        bool secondNumberCheck = false;
+        while (!secondNumberCheck) {
+            Console.WriteLine("Enter your second number:");
+            string value = Console.ReadLine();
 
-Console.WriteLine("Result: " + result);
+            secondNumberCheck = float.TryParse(value, out secondNumber);
 
-Console.WriteLine();
+            if (!secondNumberCheck) {
+                Console.WriteLine("Not a valid number, please try again.\n");
+            }
+        }
+
+        while (!calculator.CheckCalculationInput(calculation)) {
+            
+            Console.WriteLine("Enter your calculation method (+, -, *, /):");
+            calculation = Console.ReadLine();
+            
+            if (!calculator.CheckCalculationInput(calculation)) {
+                Console.WriteLine("Invalid calculation method, please try again.\n");
+            }
+        }
+
+        float result = calculator.GetResults(firstNumber, secondNumber, calculation);
+
+        Console.WriteLine("Result: " + result);
+    }
+}
