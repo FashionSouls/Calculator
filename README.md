@@ -7,7 +7,6 @@ This is a basic console program that will do basic arithmetic.
 - Ask user what type of arithmetic operation they would like to do (addition, subtraction, division or multiplication)
   - *If input is not a valid operation, prompt user to try again.* 
 - Output result
-- Go back to the start
 
 ## How do you get user input?
 The "Console.ReadLine()" function will return the user's input in the terminal.
