@@ -7,10 +7,11 @@ This is a basic console program that will do basic arithmetic.
 - Output result
 - Go back to the start
 
-*How to get user input?*
+**How do you get user input?**
 
-The "Console.ReadLine()" will read the user's input.
+The "Console.ReadLine()" function will return the user's input in the terminal.
 
+*Example:*
 ```c#
 Console.WriteLine("Enter your age:");
 int age = Convert.ToInt32(Console.ReadLine());
